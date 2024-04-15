@@ -3,8 +3,6 @@
     <a href="/">DebilMobil</a>
     <span>Ride</span>
     <span>Rent</span>
-    <span>Eat</span>
-    <span>Hotels</span>
     <div class="reg">
         <a href="/reg">Sign up</a>
     </div>
