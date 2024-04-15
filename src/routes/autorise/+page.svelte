@@ -1,4 +1,8 @@
+<script>
+import  Header  from '$lib/components/Header.svelte';
+</script>
 <body>
+    <Header />
 <div class="back">
     <div class="form">
         <div class="attributes"><h1>Имя пользователя</h1></div>
@@ -16,6 +20,9 @@
     @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
+    min-height: 100vh;
+    display:grid;
+    grid-template-rows: auto 1fr;
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
@@ -32,7 +39,7 @@ h1, input, button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 93vh;
     overflow-y: hidden;
     margin: 0;
     padding: 0;

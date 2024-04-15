@@ -20,6 +20,7 @@
         margin: 0;
     }
     .header{
+        margin-bottom: 3px;
         background-color: #121417;
         display: flex;
         align-items: center;
