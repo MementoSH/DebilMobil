@@ -5,6 +5,7 @@
 </div>
 <style>
     .footer{
+        background-color:  #121417;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -16,7 +17,6 @@
         border-radius: 12px;
         background: #1A69E5;
         padding: 8px;
-        margin: 10px;
     }
     .zalupa{
         margin: 10px;

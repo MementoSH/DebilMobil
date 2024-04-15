@@ -1,4 +1,4 @@
-<div class="header mx-auto container flex space-between">
+<div class="header">
     <img src="" alt="">
     <a href="/">DebilMobil</a>
     <span>Ride</span>
@@ -6,15 +6,21 @@
     <span>Eat</span>
     <span>Hotels</span>
     <div class="reg">
-        <a href="">Sign up</a>
+        <a href="/reg">Sign up</a>
     </div>
     <div class="log">
-        <a href="">Log in</a>
+        <a href="/autorise">Log in</a>
     </div>
 </div>
 <hr/>
 <style>
+    hr {
+        background-color: #121417;
+        padding: 0;
+        margin: 0;
+    }
     .header{
+        background-color: #121417;
         display: flex;
         align-items: center;
         justify-content: space-around;
