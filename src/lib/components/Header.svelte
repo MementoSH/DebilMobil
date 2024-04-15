@@ -30,11 +30,13 @@
         font-size: large;
     }
     .reg{
+        text-decoration: none;
         border-radius: 12px;
         background: #1A69E5;
         padding: 8px;
     }
     .log{
+        text-decoration: none;
         border-radius: 12px;
         background: #292E38;
         padding: 10px;
