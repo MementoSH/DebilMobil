@@ -74,7 +74,9 @@
         background-color: #fff;
     }
     .image{
+        margin-right: 80px;
         width: 25%;
+        border-radius: 10px;
     }
     .cars{ 
         display: grid;
@@ -87,6 +89,9 @@
         margin: 15px;
     }
     .pizda{
+        border-radius: 10px;
+        background-color: #292E38;
         display: grid;
+        padding: 15px;
     }
 </style>

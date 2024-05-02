@@ -1,7 +1,9 @@
 <div class="header">
     <img src="" alt="">
     <a href="/">DebilMobil</a>
-    <span>Ride</span>
+    <div>
+        <a href="/catalog">Catalog</a>
+    </div>
     <span>Rent</span>
     <div class="reg">
         <a href="/reg">Sign up</a>
