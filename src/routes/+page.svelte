@@ -14,6 +14,10 @@
         background-color: #121417;
         
     }   
+    :global(a){
+        text-decoration: none;
+        color: white;
+    }
     :global(hr){
         margin: 0;
     }

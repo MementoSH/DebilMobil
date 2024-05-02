@@ -12,10 +12,6 @@
 </div>
 <hr/>
 <style>
-    a {
-        text-decoration: none;
-        color: white;
-    }
     .header{
         background-color: #121417;
         display: flex;
