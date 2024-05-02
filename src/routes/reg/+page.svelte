@@ -22,15 +22,11 @@
 
 
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 body {
-    min-height: 100vh;
+    min-height: 100%;
     display:grid;
     grid-template-rows: auto 1fr;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 h1, input, button {
@@ -44,7 +40,7 @@ h1, input, button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 93vh;
+    height: 100vh;
     overflow-y: hidden;
     margin: 0;
     padding: 0;

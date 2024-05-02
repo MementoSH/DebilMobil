@@ -14,9 +14,12 @@
         background-color: black;
         
     }   
+    
     :global(body) {
-      gap: 0;
-      margin: 0;
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
       overflow-y: hidden;
+      
     } 
 </style>
