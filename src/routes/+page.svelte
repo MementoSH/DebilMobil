@@ -11,10 +11,12 @@
 </body>
 <style>
     .jopa{
-        background-color: black;
+        background-color: #121417;
         
     }   
-    
+    :global(hr){
+        margin: 0;
+    }
     :global(body) {
         font-family: 'Roboto', sans-serif;
         margin: 0;

@@ -1,7 +1,6 @@
 <script>
 import  Header  from '$lib/components/Header.svelte';
 </script>
-<body>
     <Header />
 <div class="back">
     <div class="form">
@@ -14,19 +13,8 @@ import  Header  from '$lib/components/Header.svelte';
         <button class="attributes">Авторизоваться</button>
     </div>
 </div>
-</body>
 
 <style>
-
-body {
-    min-height: 100%;
-    display:grid;
-    grid-template-rows: auto 1fr;
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
 h1, input, button {
     text-align: center;
     color: white;
@@ -39,9 +27,6 @@ h1, input, button {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow-y: hidden;
-    margin: 0;
-    padding: 0;
 }
 
 .form {

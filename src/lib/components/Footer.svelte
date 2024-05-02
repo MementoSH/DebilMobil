@@ -4,7 +4,10 @@
     <div class="hyper"><a href="/">Посмотрите все предложения</a></div>
 </div>
 <style>
-    
+    a {
+        text-decoration: none;
+        color: white;
+    }
     .footer{
         background-color:  #121417;
         display: flex;

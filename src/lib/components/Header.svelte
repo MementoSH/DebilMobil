@@ -12,13 +12,11 @@
 </div>
 <hr/>
 <style>
-    hr {
-        background-color: #121417;
-        padding: 0;
-        margin: 0;
+    a {
+        text-decoration: none;
+        color: white;
     }
     .header{
-        margin-bottom: 3px;
         background-color: #121417;
         display: flex;
         align-items: center;
@@ -28,13 +26,11 @@
         font-size: large;
     }
     .reg{
-        text-decoration: none;
         border-radius: 12px;
         background: #1A69E5;
         padding: 8px;
     }
     .log{
-        text-decoration: none;
         border-radius: 12px;
         background: #292E38;
         padding: 10px;
