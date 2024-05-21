@@ -8,7 +8,7 @@
         <img src="/search.png" alt="">
         </div>
     </div>
-    `<div class="cars">
+    <div class="cars">
         <div class="car">
             <img class="image" src="/matizz.png" alt="">
             <div class="pizda">
@@ -26,7 +26,8 @@
                 <div>Описание: УЗБЕКСКИЙ МОНСТР</div>
                 <div>Контакт для связи: <a href="tel:+79227699080">главный дизайнер</a></div>
             </div>
-        </div><div class="car">
+        </div>
+        <div class="car">
             <img class="image" src="/matizz.png" alt="">
             <div class="pizda">
                 <div>Марка: ДЕО МАТИЗ</div>
@@ -34,15 +35,8 @@
                 <div>Описание: УЗБЕКСКИЙ МОНСТР</div>
                 <div>Контакт для связи: <a href="tel:+79227699080">главный дизайнер</a></div>
             </div>
-        </div><div class="car">
-            <img class="image" src="/matizz.png" alt="">
-            <div class="pizda">
-                <div>Марка: ДЕО МАТИЗ</div>
-                <div>Характеристики: 500 сил, мкпп, жопа</div>
-                <div>Описание: УЗБЕКСКИЙ МОНСТР</div>
-                <div>Контакт для связи: <a href="tel:+79227699080">главный дизайнер</a></div>
-            </div>
-        </div><div class="car">
+        </div>
+        <div class="car">
             <img class="image" src="/matizz.png" alt="">
             <div class="pizda">
                 <div>Марка: ДЕО МАТИЗ</div>
@@ -78,15 +72,13 @@
         width: 25%;
         border-radius: 10px;
     }
-    .cars{ 
-        display: grid;
-        grid-template-rows: 3fr;
-    }
+    
     .car{
         display: flex;
         justify-content: center;
         color: white;
         margin: 15px;
+        padding: 10px;
     }
     .pizda{
         border-radius: 10px;

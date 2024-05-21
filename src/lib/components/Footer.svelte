@@ -1,7 +1,7 @@
 <div class="footer">
     <div class="xuy">Готовы к путешествиям?</div>
     <div class="zalupa">Ознакомьтесь с нашими последними предложениями по аренде автомобилей и приготовьтесь к следующему приключению.</div>
-    <div class="hyper"><a href="/">Посмотрите все предложения</a></div>
+    <div class="hyper"><a href="/catalog">Посмотрите предложения</a></div>
 </div>
 <style>
     .footer{

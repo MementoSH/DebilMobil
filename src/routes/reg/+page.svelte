@@ -1,49 +1,83 @@
 <script>
     import  Header  from '$lib/components/Header.svelte';
+    import { redirect } from '@sveltejs/kit';
+
+    let login = '';
+    let password = '';
+    let confpassValue = '';
+    let fullName = '';
+
+    async function register() {
+        const formData = new FormData();
+        formData.append('full_name', fullName);
+        formData.append('login', login);
+        formData.append('password', password);
+
+        try {
+            const response = await fetch('https://213.143.234.134/users/register', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Success:', result);
+                redirect(300, '/');
+            } else {
+                console.error('Error:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+    
+
+    function ansValidation() {
+            if(password != confpassValue) {
+               window.alert("Passwords do not match!")
+               password = "";
+               confpassValue = "";
+            }
+        }
+
 </script>
 
-<body>
-    <Header />
-<div class="back">
-    <div class="form">
-        <div class="attributes"><h1>Имя пользователя</h1></div>
-        <input type="text" id="username">
-        
-        <div class="attributes"><h1>Пароль</h1></div>
-        <input class="password" id="password">
 
-        <div class="attributes"><h1>Подтвердите пароль</h1></div>
-        <input class="password" id="password">
-        
-        <button class="attributes">Зарегистрироваться</button>
+<form on:submit|preventDefault={register}>
+<Header />
+    <div class="back">
+        <div class="form">
+            <div class="attributes"><h1>Имя пользователя</h1></div>
+            <input type="text" bind:value={login} id="username" required>
+            
+            <div class="attributes"><h1>Пароль</h1></div>
+            <input type="password" class="password" bind:value={password} id="password" required>
+            
+            <div class="attributes"><h1>Подтвердите пароль</h1></div>
+            <input type="password" class="password" bind:value={confpassValue} id="confirmPassword" required>
+            <button on:click={ansValidation} class="attributes">Зарегистрироваться</button>
+        </div>
     </div>
-</div>
-</body>
-
-
+</form>
+    
+    
+    
 <style>
-
-body {
-    min-height: 100%;
-    display:grid;
-    grid-template-rows: auto 1fr;
-}
-
-h1, input, button {
-    text-align: center;
-    color: white;
-}
-
-.back {
-    background-color: #121417;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow-y: hidden;
-    margin: 0;
-    padding: 0;
+        h1, input, button {
+            text-align: center;
+            color: white;
+        }
+        
+        .back {
+            background-color: #121417;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-y: hidden;
+            margin: 0;
+            padding: 0;
+            min-height: 93.2vh;
 }
 
 .form {

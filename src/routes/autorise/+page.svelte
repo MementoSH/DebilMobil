@@ -26,7 +26,8 @@ h1, input, button {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 93.2vh;
+    overflow-y: hidden;
 }
 
 .form {
