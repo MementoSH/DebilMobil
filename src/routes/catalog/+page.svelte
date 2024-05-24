@@ -7,10 +7,6 @@
         <a href="/">
             <img src="/arrow.png" alt="">
         </a>
-        <div class="search">
-            Поиск нужного автомобиля
-        <img src="/search.png" alt="">
-        </div>
     </div>
     <div class="cars">
         <div class="car">
@@ -52,8 +48,12 @@
     </div>
 </div>
 
+
 <style>
+
 .main{
+
+
     background-color: #121417;
     }
     .header {
@@ -62,15 +62,7 @@
         align-items: center;
         justify-content: space-between;
     }
-    .search {
-        display: flex;
-        justify-content: space-between;
-        width: 95%;
-        align-items: center;
-        padding: 5px;
-        border-radius: 15px;
-        background-color: #fff;
-    }
+    
     .image{
         margin-right: 80px;
         width: 25%;
@@ -89,5 +81,9 @@
         background-color: #292E38;
         display: grid;
         padding: 15px;
+    }
+
+    .cars {
+        display: grid;
     }
 </style>

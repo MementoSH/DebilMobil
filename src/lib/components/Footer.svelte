@@ -5,13 +5,13 @@
 </div>
 <style>
     .footer{
+        margin: 0;
         background-color:  #121417;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
         color: white;
-        margin: 10px;
     }
     .hyper{
         border-radius: 12px;
