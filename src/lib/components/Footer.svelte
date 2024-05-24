@@ -5,7 +5,7 @@
 </div>
 <style>
     .footer{
-        margin: 0;
+        margin-top: 100px;
         background-color:  #121417;
         display: flex;
         flex-direction: column;
