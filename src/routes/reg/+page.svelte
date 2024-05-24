@@ -5,16 +5,14 @@
     let login = '';
     let password = '';
     let confpassValue = '';
-    let fullName = '';
 
     async function register() {
         const formData = new FormData();
-        formData.append('full_name', fullName);
         formData.append('login', login);
         formData.append('password', password);
 
         try {
-            const response = await fetch('https://213.143.234.134/users/register', {
+            const response = await fetch('http://82.147.71.252:8000/users/register', {
                 method: 'POST',
                 body: formData
             });
@@ -22,6 +20,7 @@
             if (response.ok) {
                 const result = await response.json();
                 console.log('Success:', result);
+                alert('Вы успешно зарегестрированы');
                 redirect(300, '/');
             } else {
                 console.error('Error:', response.statusText);
@@ -29,6 +28,7 @@
         } catch (error) {
             console.error('Error:', error);
         }
+        
     }
     
 

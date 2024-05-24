@@ -1,18 +1,50 @@
 <script>
-import  Header  from '$lib/components/Header.svelte';
+    import  Header  from '$lib/components/Header.svelte';
+    import { redirect } from '@sveltejs/kit';
+
+    let login = '';
+    let password = '';
+
+    async function autorise() {
+        const formData = new FormData();
+        formData.append('login', login);
+        formData.append('password', password);
+
+        try {
+            const response = await fetch('http://82.147.71.252:8000/users/login', {
+                method: 'POST',
+                body: formData
+            });
+
+            if (response.ok) {
+                const result = await response.json();
+                console.log('Success:', result);
+                alert('Вы успешно авторизованы!');
+                redirect(300, '/');
+            } else {
+                console.error('Error:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Неверный пароль или логин')
+        }
+
+        
+    }
 </script>
     <Header />
-<div class="back">
-    <div class="form">
-        <div class="attributes"><h1>Имя пользователя</h1></div>
-        <input type="text" id="username">
-        
-        <div class="attributes"><h1>Пароль</h1></div>
-        <input class="password" id="password">
-        
-        <button class="attributes">Авторизоваться</button>
-    </div>
-</div>
+    <form on:submit|preventDefault={autorise}>
+            <div class="back">
+                <div class="form">
+                    <div class="attributes"><h1>Имя пользователя</h1></div>
+                    <input type="text" bind:value={login} id="username" required>
+                    
+                    <div class="attributes"><h1>Пароль</h1></div>
+                    <input type="password" class="password" bind:value={password} id="password" required>
+                    <button on:click={autorise} class="attributes">Войти</button>
+                </div>
+            </div>
+        </form>
 
 <style>
 h1, input, button {
