@@ -27,10 +27,11 @@
                 if (result.status == 401) {
                     alert('Неверный логин или пароль')
                 } 
-                
+                else {
                 console.log('Success:', result);
                alert('Вы успешно авторизованы!');
                goto ('/')
+                }
             } else {
                 console.error('Error:', response.statusText);
             }
