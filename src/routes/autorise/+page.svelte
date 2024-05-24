@@ -1,6 +1,6 @@
 <script>
+    import { goto } from '$app/navigation';
     import  Header  from '$lib/components/Header.svelte';
-    import { redirect } from '@sveltejs/kit';
 
     let login = '';
     let password = '';
@@ -13,27 +13,36 @@
         try {
             const response = await fetch('http://82.147.71.252:8000/users/login', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "login": login,
+                    "password": password
+                })
             });
 
             if (response.ok) {
                 const result = await response.json();
+                if (result.status == 401) {
+                    alert('Неверный логин или пароль')
+                } 
+                
                 console.log('Success:', result);
-                alert('Вы успешно авторизованы!');
-                redirect(300, '/');
+               alert('Вы успешно авторизованы!');
+               goto ('/')
             } else {
                 console.error('Error:', response.statusText);
             }
         } catch (error) {
             console.error('Error:', error);
-            alert('Неверный пароль или логин')
         }
 
         
     }
 </script>
     <Header />
-    <form on:submit|preventDefault={autorise}>
+    <form on:submit>
             <div class="back">
                 <div class="form">
                     <div class="attributes"><h1>Имя пользователя</h1></div>

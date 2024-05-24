@@ -4,7 +4,7 @@
     <div>
         <a href="/catalog">Catalog</a>
     </div>
-    <span>Rent</span>
+    <div><a href="/cabinet">Cabinet</a></div>
     <div class="reg">
         <a href="/reg">Sign up</a>
     </div>

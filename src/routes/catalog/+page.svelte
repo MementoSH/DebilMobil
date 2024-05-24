@@ -1,3 +1,7 @@
+<script>
+    import Header from "$lib/components/Header.svelte";
+</script>
+<Header />
 <div class="main">
     <div class="header">
         <a href="/">

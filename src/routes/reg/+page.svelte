@@ -12,9 +12,15 @@
         formData.append('password', password);
 
         try {
-            const response = await fetch('http://82.147.71.252:8000/users/register', {
+            const response = await fetch('http://82.147.71.252:8000/users/signup', {
                 method: 'POST',
-                body: formData
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    "login": login,
+                    "password": password
+                })
             });
 
             if (response.ok) {
