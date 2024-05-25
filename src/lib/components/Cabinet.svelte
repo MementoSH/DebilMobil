@@ -1,5 +1,4 @@
 <div class="back">
-    
     <div class="panel">
    <h2 class="text">Личные данные</h2> 
    <div class="">
