@@ -1,6 +1,8 @@
 <script>
+    import { goto } from '$app/navigation';
     import  Header  from '$lib/components/Header.svelte';
     import { redirect } from '@sveltejs/kit';
+    import { groupBy } from 'lodash';
 
     let login = '';
     let password = '';
@@ -27,7 +29,7 @@
                 const result = await response.json();
                 console.log('Success:', result);
                 alert('Вы успешно зарегестрированы');
-                redirect(300, '/');
+                goto ('/')
             } else {
                 console.error('Error:', response.statusText);
             }
