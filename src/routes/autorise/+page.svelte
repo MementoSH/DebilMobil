@@ -5,17 +5,14 @@
     let login = '';
     let password = '';
 
-    async function autorise() {
-        const formData = new FormData();
-        formData.append('login', login);
-        formData.append('password', password);
-
+        async function autorise() {
         try {
-            const response = await fetch('http://82.147.71.252:8000/users/login', {
+            const response = await fetch('/api/users/login', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
                 },
+                credentials: "include",
                 body: JSON.stringify({
                     "login": login,
                     "password": password
@@ -38,8 +35,6 @@
         } catch (error) {
             console.error('Error:', error);
         }
-
-        
     }
 </script>
     <Header />
@@ -55,7 +50,6 @@
                 </div>
             </div>
         </form>
-
 <style>
 h1, input, button {
     text-align: center;

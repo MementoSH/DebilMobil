@@ -37,7 +37,7 @@
         try {
             const response = await fetch('http://82.147.71.252:8000/cars/create_car', {
                 method: 'POST',
-                body: formData
+                body: formData,
             });
 
             if (response.ok) {
