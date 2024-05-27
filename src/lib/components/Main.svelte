@@ -1,3 +1,4 @@
+<body>
 <div class="stolb">
     <div class="text2">Брат, DebilMobil - это не просто контора по аренде машин, это целый мир бескрайних возможностей на четырех колесах! У них аж руки чешутся прикоснуться к этим крутым байкам, которых они предлагают в прокат. И сервис, прости господи, какой по-феншую, словно VIP-ложа на стадионе - всё ради клиента, аж вглубь души!
 
@@ -17,18 +18,18 @@
 <div class="jopa2">
     <div class="back">
         <h2 class="text">Обратите внимание на актуальные предложения!</h2>
-        <a href="src\lib\components\Card.svelte">
+        <a href=/carcard>
             <img class="image" src="/matizz.png" alt="" />
         </a>
-        <a href="src\lib\components\Card.svelte">
-        <img class="image" src="/matizz.png" alt="" />
-    </a>
-    <a href="src\lib\components\Card.svelte">
-        <img class="image" src="/matizz.png" alt="" />
+        <a href=/carcard>
+            <img class="image" src="/matizz.png" alt="" />
+        </a>
+        <a href=/carcard>
+            <img class="image" src="/matizz.png" alt="" />
         </a>
     </div>
 </div>
-
+</body>
 
 <style>
     .text2 {
@@ -80,4 +81,6 @@
         justify-content: flex-end;
         color: white;
     }
+
+    
 </style>

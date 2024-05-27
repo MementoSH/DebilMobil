@@ -5,17 +5,13 @@
     import "../app.css";
 </script>
 <body>
-<div class="jopa">   
+<div>   
     <Header/>
     <Main />
     <Footer/>
 </div>
 </body>
 <style>
-    .jopa{
-        background-color: #121417;
-        
-    }   
     :global(a){
         text-decoration: none;
         color: white;
@@ -23,7 +19,8 @@
     :global(hr){
         margin: 0;
     }
-    :global(body) {
+    :global(body) { 
+        background-color: #121417; 
         font-family: 'Roboto', sans-serif;
         margin: 0;
         padding: 0;
