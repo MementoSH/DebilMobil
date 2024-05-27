@@ -1,39 +1,48 @@
-<div class="back">
-    <div class="panel">
-   <h2 class="text">Личные данные</h2> 
-   <div class="">
-   <h1 class="text">Логин</h1> 
-   <spam class="text" >**Логин Пользователя**</spam>
-</div>
-   </div>
-</div>
-
+<body>
+			<div class="block">
+				<input
+					type="file"
+					id="file-uploader"
+					accept="image/*"
+					style="display:none;"
+				/>
+			<div class="tabs">
+				<label class="text" for="name">Фамилия и имя:</label>
+				<input
+					type="text"
+					id="name"
+					
+					placeholder="Popka Petrovich"
+					
+				/>
+				<label for="email" class="text">Email</label>
+				<input type="email" id="name" placeholder="popka1337@zhopa.sru" />
+            </div>
+	
+</body>
 <style>
-
-    .back {
-        background-color: #121417;
-        background-size: cover;
+    input {
+        color: white;
+    }
+	body {
         display: flex;
         justify-content: center;
         align-items: center;
-        overflow-y: hidden;
-        margin: 0;
-        padding: 0;
-        min-height: 93.2vh;
-}
-
-    .text {
-        display: flex;
-        padding: 20px;
-        margin: 10px;
+		border-radius: 30px;
+		border-width: 1px;
+		border-color: black;
+        margin-top: 280px;
+	}
+	input[type='text'],
+	input[type='email'] {
+		width: 100%;
+		padding: 12px;
+		border-radius: 30px;
+		box-sizing: border-box;
+		margin-bottom: 16px;
+		margin-top: 10px;
+	}
+	.text{
         color: white;
-        justify-content: center;
-        
-    }
-
-    .panel {
-        background: #292E38;
-        border-radius: 10px;
-        width: 500px;
     }
 </style>
