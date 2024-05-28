@@ -69,7 +69,7 @@
         margin-right: 20px;
     }
     .image {
-        border-radius: 10pxs;
+        border-radius: 10px;
         justify-content: center;
         height: 300px;
         display: grid;
