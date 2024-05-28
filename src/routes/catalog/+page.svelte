@@ -69,16 +69,16 @@
     }
     
     .image{
-        margin: 10px;
-        margin-right: 80px;
-        width: 25%;
+        margin-left: 50px;
+        margin-top: 40px;
+        width: 80%;
         border-radius: 10px;
     }
     
     .car{
         display: grid;
-        grid-template-columns: repeat(1 , 1fr);
-         grid-auto-rows: minmax(100px, auto);
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(100px, auto);
         justify-content: center;
         color: white;
         margin: 15px;
