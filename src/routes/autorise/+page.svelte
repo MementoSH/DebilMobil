@@ -1,6 +1,7 @@
 <script>
     import { goto } from '$app/navigation';
     import  Header  from '$lib/components/Header.svelte';
+    import {isAuth} from "$lib/store"
 
     let login = '';
     let password = '';
@@ -27,6 +28,7 @@
                 else {
                 console.log('Success:', result);
                alert('Вы успешно авторизованы!');
+               isAuth.set(true);
                goto ('/')
                 }
             } else {

@@ -4,7 +4,7 @@
     let sourceImage: HTMLImageElement | null = null;
     let canvas: HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D;
-    let startX = 50, startY = 50, cropSize = 400;
+    let startX = 50, startY = 50, cropWidth = 400, cropHeight = 225; // 16:9 aspect ratio
     let isDragging = false;
     let isResizing = false;
     let dragStartX: number, dragStartY: number;
@@ -51,11 +51,11 @@
         const mouseX = event.clientX - rect.left;
         const mouseY = event.clientY - rect.top;
 
-        if (mouseX > startX + cropSize - 10 && mouseX < startX + cropSize + 10 &&
-            mouseY > startY + cropSize - 10 && mouseY < startY + cropSize + 10) {
+        if (mouseX > startX + cropWidth - 10 && mouseX < startX + cropWidth + 10 &&
+            mouseY > startY + cropHeight - 10 && mouseY < startY + cropHeight + 10) {
             isResizing = true;
-        } else if (mouseX > startX && mouseX < startX + cropSize &&
-            mouseY > startY && mouseY < startY + cropSize) {
+        } else if (mouseX > startX && mouseX < startX + cropWidth &&
+            mouseY > startY && mouseY < startY + cropHeight) {
             isDragging = true;
             dragStartX = mouseX - startX;
             dragStartY = mouseY - startY;
@@ -68,18 +68,21 @@
         const mouseY = event.clientY - rect.top;
 
         if (isResizing) {
-            cropSize = Math.max(20, Math.min(mouseX - startX, mouseY - startY));
+            const newWidth = Math.max(20, mouseX - startX);
+            const newHeight = newWidth * 9 / 16;
+            cropWidth = newWidth;
+            cropHeight = newHeight;
             draw();
         } else if (isDragging) {
             startX = mouseX - dragStartX;
             startY = mouseY - dragStartY;
             draw();
         } else {
-            if (mouseX > startX + cropSize - 10 && mouseX < startX + cropSize + 10 &&
-                mouseY > startY + cropSize - 10 && mouseY < startY + cropSize + 10) {
+            if (mouseX > startX + cropWidth - 10 && mouseX < startX + cropWidth + 10 &&
+                mouseY > startY + cropHeight - 10 && mouseY < startY + cropHeight + 10) {
                 canvas.style.cursor = 'nwse-resize';
-            } else if (mouseX > startX && mouseX < startX + cropSize &&
-                mouseY > startY && mouseY < startY + cropSize) {
+            } else if (mouseX > startX && mouseX < startX + cropWidth &&
+                mouseY > startY && mouseY < startY + cropHeight) {
                 canvas.style.cursor = 'move';
             } else {
                 canvas.style.cursor = 'crosshair';
@@ -101,28 +104,28 @@
         if (includeOverlay) {
             ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
             ctx.fillRect(0, 0, canvas.width, startY);
-            ctx.fillRect(0, startY, startX, cropSize);
-            ctx.fillRect(startX + cropSize, startY, canvas.width - startX - cropSize, cropSize);
-            ctx.fillRect(0, startY + cropSize, canvas.width, canvas.height - startY - cropSize);
+            ctx.fillRect(0, startY, startX, cropHeight);
+            ctx.fillRect(startX + cropWidth, startY, canvas.width - startX - cropWidth, cropHeight);
+            ctx.fillRect(0, startY + cropHeight, canvas.width, canvas.height - startY - cropHeight);
 
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 2;
-            ctx.strokeRect(startX, startY, cropSize, cropSize);
+            ctx.strokeRect(startX, startY, cropWidth, cropHeight);
 
             ctx.fillStyle = 'black';
-            ctx.fillRect(startX + cropSize - 5, startY + cropSize - 5, 10, 10);
+            ctx.fillRect(startX + cropWidth - 5, startY + cropHeight - 5, 10, 10);
         }
     }
 
     function cropImage() {
-        if (startX !== undefined && startY !== undefined && cropSize !== undefined) {
+        if (startX !== undefined && startY !== undefined && cropWidth !== undefined && cropHeight !== undefined) {
             draw(false); // Рисуем без рамки и маски
 
-            const imageData = ctx.getImageData(startX, startY, cropSize, cropSize);
+            const imageData = ctx.getImageData(startX, startY, cropWidth, cropHeight);
 
             const tempCanvas = document.createElement('canvas');
-            tempCanvas.width = cropSize;
-            tempCanvas.height = cropSize;
+            tempCanvas.width = cropWidth;
+            tempCanvas.height = cropHeight;
             const tempCtx = tempCanvas.getContext('2d')!;
             tempCtx.putImageData(imageData, 0, 0);
 
@@ -140,16 +143,49 @@
         border: 1px solid black;
         cursor: crosshair;
     }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 10px;
+    }
+
+    button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    img {
+        margin-top: 10px;
+        border: 1px solid black;
+        max-width: 100%;
+    }
 </style>
 
-<input type="file" id="upload" accept="image/*" on:change="{handleFileUpload}">
-<br>
-<img id="sourceImage" style="display: none;" alt="">
-<br>
-<canvas id="canvas" bind:this="{canvas}" on:mousedown="{handleMouseDown}" on:mousemove="{handleMouseMove}" on:mouseup="{handleMouseUp}" width={inputImageWidth}></canvas>
-<br>
-<button on:click="{cropImage}">Обрезать Изображение</button>
-<br>
-{#if croppedImageSrc}
-    <img id="croppedImage" src="{croppedImageSrc}" style="border: 1px solid black;" alt="">
-{/if}
+<div class="container">
+    <input type="file" id="upload" accept="image/*" on:change="{handleFileUpload}">
+    <br>
+    <img id="sourceImage" style="display: none;" alt="">
+    <br>
+    <canvas id="canvas" bind:this="{canvas}" on:mousedown="{handleMouseDown}" on:mousemove="{handleMouseMove}" on:mouseup="{handleMouseUp}" width={inputImageWidth}></canvas>
+    <br>
+    <button on:click="{cropImage}">Обрезать Изображение</button>
+    <br>
+    {#if croppedImageSrc}
+        <img id="croppedImage" src="{croppedImageSrc}" alt="">
+    {/if}
+</div>

@@ -1,3 +1,7 @@
+<script>
+    import {isAuth} from "$lib/store"
+</script>
+
 <div class="header">
     <div class="logo-container">
         <img src="" alt="">
@@ -6,7 +10,13 @@
     <div>
         <a href="/catalog">Catalog</a>
     </div>
-    <div><a href="/cabinet">Cabinet</a></div>
+
+    {#if $isAuth}
+    
+    <div style="margin-right:40px;"><a href="/cabinet">Cabinet</a></div>
+
+    {:else}
+
     <div class="account">
         <div class="reg">
             <a href="/reg">Sign up</a>
@@ -15,6 +25,8 @@
             <a href="/autorise">Log in</a>
         </div>
     </div>
+
+    {/if}
 </div>
 <hr/>
 <style>

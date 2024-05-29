@@ -1,8 +1,7 @@
 <script>
     import { goto } from '$app/navigation';
     import  Header  from '$lib/components/Header.svelte';
-    import { redirect } from '@sveltejs/kit';
-    import { groupBy } from 'lodash';
+    import {isAuth} from "$lib/store"
 
     let login = '';
     let password = '';
@@ -14,7 +13,7 @@
         formData.append('password', password);
 
         try {
-            const response = await fetch('http://82.147.71.252:8000/users/signup', {
+            const response = await fetch('/api/users/signup', {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
@@ -29,6 +28,7 @@
                 const result = await response.json();
                 console.log('Success:', result);
                 alert('Вы успешно зарегестрированы');
+                isAuth.set(true);
                 goto ('/')
             } else {
                 console.error('Error:', response.statusText);
